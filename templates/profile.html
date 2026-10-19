@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Ginterships · Mon profil{% endblock %}
+{% block content %}
+<div class="form-box wide">
+  <h2>Mon profil</h2>
+  <p><b>{{ user["name"] }}</b> · {{ user["email"] }}</p>
+
+  <h3>Quels stages t'intéressent ?</h3>
+  <form method="post">
+    <div class="chips">
+      {% for key, item in interests.items() %}
+      <label class="chip">
+        <input type="checkbox" name="interests" value="{{ key }}" {% if key in chosen %}checked{% endif %}>
+        <span>{{ item[0] }}</span>
+      </label>
+      {% endfor %}
+    </div>
+    <button class="btn" type="submit">Enregistrer et voir mes offres</button>
+  </form>
+</div>
+{% endblock %}

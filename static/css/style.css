@@ -1,0 +1,67 @@
+:root {
+  --bg: #FFFBEA;        /* fond jaune très pâle */
+  --card: #FFF6CC;      /* jaune crème */
+  --accent: #F4C84A;    /* jaune miel */
+  --accent-dark: #D9A92B;
+  --text: #4A3F1D;
+  --muted: #8A7B4F;
+  --sage: #DDEFD9;      /* vert sauge */
+  --peach: #FFE4D1;     /* pêche */
+  --sky: #E3F1FA;       /* bleu ciel */
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+
+.nav { display: flex; align-items: center; justify-content: space-between;
+       padding: 14px 32px; background: var(--card); border-bottom: 2px solid var(--accent); }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--text); text-decoration: none; }
+.logo span { color: var(--accent-dark); }
+.nav .link { margin-right: 18px; color: var(--text); text-decoration: none; font-weight: 500; }
+
+.btn { background: var(--accent); color: var(--text); padding: 8px 18px; border-radius: 999px;
+       text-decoration: none; font-weight: 600; border: none; cursor: pointer; display: inline-block; }
+.btn:hover { background: var(--accent-dark); }
+
+.hero { text-align: center; padding: 48px 20px 24px; }
+.hero h1 { margin: 0 0 8px; font-size: 2.2rem; }
+.hero p { color: var(--muted); margin: 0; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+
+.card { background: #fff; border: 1px solid #F0E3A8; border-radius: 16px; padding: 18px;
+        box-shadow: 0 2px 6px rgba(200, 160, 40, .12); display: flex; flex-direction: column; gap: 10px; }
+.card h3 { margin: 0; font-size: 1.05rem; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .78rem;
+         background: var(--sage); margin: 2px 4px 2px 0; }
+.badge.loc { background: var(--sky); }
+.badge.co { background: var(--peach); }
+.card .open { margin-top: auto; align-self: flex-start; }
+
+footer { text-align: center; color: var(--muted); padding: 30px; }
+
+/* ---------- Formulaires ---------- */
+.form-box { max-width: 420px; margin: 40px auto; background: #fff; border: 1px solid #F0E3A8;
+            border-radius: 18px; padding: 28px; box-shadow: 0 4px 12px rgba(200,160,40,.15); }
+.form-box.wide { max-width: 720px; }
+.form-box h2 { margin-top: 0; }
+.form-box label { display: block; margin: 14px 0 6px; font-weight: 600; font-size: .9rem; }
+.form-box input[type=text], .form-box input[type=email], .form-box input[type=password], .form-box input:not([type]) {
+  width: 100%; padding: 10px 12px; border: 1px solid #E8D88A; border-radius: 10px;
+  background: var(--bg); font-size: 1rem; }
+.form-box input:focus { outline: 2px solid var(--accent); }
+.form-box .btn { margin-top: 20px; }
+.muted { color: var(--muted); font-size: .9rem; }
+.muted a, .empty a { color: var(--accent-dark); font-weight: 600; }
+.empty { text-align: center; color: var(--muted); padding: 30px; }
+
+/* ---------- Choix des intérêts ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0 6px; }
+.chip input { display: none; }
+.chip span { display: inline-block; padding: 8px 16px; border-radius: 999px; cursor: pointer;
+             background: var(--sky); border: 2px solid transparent; font-weight: 500; }
+.chip input:checked + span { background: var(--accent); border-color: var(--accent-dark); font-weight: 700; }
+
+/* ---------- Messages ---------- */
+.flash { max-width: 700px; margin: 16px auto 0; background: var(--sage); border-radius: 12px;
+         padding: 10px 16px; text-align: center; }

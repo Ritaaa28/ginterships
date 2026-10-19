@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Ginterships · Connexion{% endblock %}
+{% block content %}
+<div class="form-box">
+  <h2>Bon retour 🌼</h2>
+  <form method="post">
+    <label>Email</label>
+    <input type="email" name="email" required>
+    <label>Mot de passe</label>
+    <input type="password" name="password" required>
+    <button class="btn" type="submit">Se connecter</button>
+  </form>
+  <p class="muted">Pas de compte ? <a href="/signup">S'inscrire</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Ginterships · Accueil{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Trouve ton stage, on s'occupe du reste 🌼</h1>
+  <p>Ginterships surveille plusieurs sites et t'alerte dès qu'une nouvelle offre apparaît.</p>
+</section>
+
+<div class="container">
+  <div class="grid">
+    {% for o in offers %}
+    <article class="card">
+      <h3>{{ o["title"] }}</h3>
+      <div>
+        {% if o["company"] %}<span class="badge co">{{ o["company"] }}</span>{% endif %}
+        {% if o["location"] %}<span class="badge loc">📍 {{ o["location"] }}</span>{% endif %}
+        <span class="badge">{{ o["source"] }}</span>
+      </div>
+      <a class="btn open" href="{{ o['url'] }}" target="_blank">Voir l'offre</a>
+    </article>
+    {% else %}
+    <p>Aucune offre pour le moment.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

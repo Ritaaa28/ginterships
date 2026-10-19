@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Ginterships{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo" href="/">G<span>interships</span> 🌼</a>
+    <div>
+      <a class="link" href="/">Accueil</a>
+      {% if session.get("user_id") %}
+        <a class="link" href="/my-offers">Mes offres</a>
+        <a class="link" href="/profile">👤 {{ session.get("user_name") }}</a>
+        <a class="btn" href="/logout">Déconnexion</a>
+      {% else %}
+        <a class="link" href="/signin">Se connecter</a>
+        <a class="btn" href="/signup">S'inscrire</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash">{% for m in messages %}<div>{{ m }}</div>{% endfor %}</div>
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+
+  <footer>Ginterships · projet étudiant · offres de stage collectées automatiquement</footer>
+</body>
+</html>

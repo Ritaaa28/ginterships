@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Ginterships · Mes offres{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Mes offres 🌼</h1>
+  {% if labels %}
+    <p>Filtrées pour : {{ labels | join(" · ") }}</p>
+  {% endif %}
+</section>
+
+<div class="container">
+  {% if not labels %}
+    <p class="empty">Tu n'as pas encore choisi tes intérêts. <a href="/profile">Choisis-les ici</a>.</p>
+  {% else %}
+  <p class="muted">{{ offers | length }} offre(s) trouvée(s)</p>
+  <div class="grid">
+    {% for o in offers %}
+    <article class="card">
+      <h3>{{ o["title"] }}</h3>
+      <div>
+        {% if o["company"] %}<span class="badge co">{{ o["company"] }}</span>{% endif %}
+        {% if o["location"] %}<span class="badge loc">📍 {{ o["location"] }}</span>{% endif %}
+        <span class="badge">{{ o["source"] }}</span>
+      </div>
+      <a class="btn open" href="{{ o['url'] }}" target="_blank">Voir l'offre</a>
+    </article>
+    {% else %}
+    <p class="empty">Aucune offre ne correspond pour l'instant. On te préviendra dès qu'il y en a ✉️</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

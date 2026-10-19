@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Ginterships · Inscription{% endblock %}
+{% block content %}
+<div class="form-box">
+  <h2>Créer mon compte 🌼</h2>
+  <form method="post">
+    <label>Nom</label>
+    <input name="name" required>
+    <label>Email</label>
+    <input type="email" name="email" required>
+    <label>Mot de passe (6 caractères minimum)</label>
+    <input type="password" name="password" minlength="6" required>
+    <button class="btn" type="submit">S'inscrire</button>
+  </form>
+  <p class="muted">Déjà inscrit ? <a href="/signin">Se connecter</a></p>
+</div>
+{% endblock %}
